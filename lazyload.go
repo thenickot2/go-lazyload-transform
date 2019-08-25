@@ -1,29 +1,20 @@
 package main
 
 import (
-	"github.com/gopherjs/gopherjs/js"
 	"github.com/jbowtie/gokogiri"
 	"regexp"
 	"strings"
 )
 
-func main() {
-	js.Global.Set("lazyload", map[string]interface{}{
-		"New": New,
-	})
-}
+func main() {}
 
 // LazyLoad maintains the String representation of the page html and options to use during transformation
 type LazyLoad struct {
 	html string
 }
 
-// New creates a new JS instance of LazyLoad
-func New(html string) *js.Object {
-	return js.MakeWrapper(&LazyLoad{html})
-}
-
 // Render transforms the HTML for LazyLoading
+// Export Render
 func Render(lazyLoad *LazyLoad) string {
 	// Parse the web page
 	doc, _ := gokogiri.ParseHtml([]byte(lazyLoad.html))

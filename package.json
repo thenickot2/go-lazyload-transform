@@ -1,0 +1,33 @@
+{
+  "name": "go-lazyload-transform",
+  "version": "1.0.0",
+  "description": "transform html to support the lazy loading of images clientside",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenickot2/go-lazyload-transform.git"
+  },
+  "keywords": [
+    "lazyloading",
+    "lazyload",
+    "img",
+    "node",
+    "serverside"
+  ],
+  "author": "Nicholas Tsianos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thenickot2/go-lazyload-transform/issues"
+  },
+  "homepage": "https://github.com/thenickot2/go-lazyload-transform#readme",
+  "dependencies": {
+    "ffi": "^2.3.0",
+    "ref-struct": "^1.1.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
