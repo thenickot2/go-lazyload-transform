@@ -1,14 +1,13 @@
 const path = require('path');
 const ffi = require("ffi");
+const ref = require('ref');
 const Struct = require("ref-struct"); 
-const LazyLoad = ffi.Library(path.join(__dirname, './lazyload'));
+const LazyLoad = ffi.Library('./lazyload', {
+    Render: ['char *', ['char *']]
+});
 
 function Render(html, options={}) {
-    const renderOpts = Struct({
-        html: "string",
-    });
-    console.log(LazyLoad);
-    const transformedHTML = LazyLoad.Render(renderOpts)
+    const transformedHTML = LazyLoad.Render(ref.allocCString(html))
 
     return transformedHTML;
 }

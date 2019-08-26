@@ -1,12 +1,12 @@
 package main
 
 import (
+	"C"
+	"fmt"
 	"github.com/jbowtie/gokogiri"
 	"regexp"
 	"strings"
 )
-
-func main() {}
 
 // LazyLoad maintains the String representation of the page html and options to use during transformation
 type LazyLoad struct {
@@ -14,10 +14,11 @@ type LazyLoad struct {
 }
 
 // Render transforms the HTML for LazyLoading
-// Export Render
-func Render(lazyLoad *LazyLoad) string {
+//export Render
+func Render(html string) string {
+	fmt.Println(len(html))
 	// Parse the web page
-	doc, _ := gokogiri.ParseHtml([]byte(lazyLoad.html))
+	doc, _ := gokogiri.ParseHtml([]byte(html))
 
 	// Move src to data-src for all images
 	imgs, _ := doc.Search("//img")
@@ -43,3 +44,5 @@ func Render(lazyLoad *LazyLoad) string {
 
 	return stringRep
 }
+
+func main() {}

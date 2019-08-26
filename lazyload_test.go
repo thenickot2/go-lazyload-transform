@@ -17,8 +17,7 @@ func TestImageSrc(t *testing.T) {
 </html>
 `
 
-	lazyLoad := LazyLoad{html: input}
-	output := Render(&lazyLoad)
+	output := Render(input)
 
 	expected := `<!DOCTYPE html>
 <html>
@@ -54,8 +53,7 @@ func TestBackgroundImageSrc(t *testing.T) {
 </html>
 `
 
-	lazyLoad := LazyLoad{html: input}
-	output := Render(&lazyLoad)
+	output := Render(input)
 
 	expected := `<!DOCTYPE html>
 <html>

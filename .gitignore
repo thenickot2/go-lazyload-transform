@@ -2,8 +2,9 @@
 *.exe
 *.exe~
 *.dll
-#*.so
+*.so
 *.dylib
+*.h
 
 # Test binary, build with `go test -c`
 *.test

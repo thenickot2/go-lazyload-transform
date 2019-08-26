@@ -30,5 +30,5 @@ test('Render calls go binding', () => {
 </body>
 </html>
 `;
-    expected(output).toEqual(expected);
+    expect(output).toEqual(expected);
 });
