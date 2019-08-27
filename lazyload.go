@@ -2,7 +2,6 @@ package main
 
 import (
 	"C"
-	"fmt"
 	"github.com/jbowtie/gokogiri"
 	"regexp"
 	"strings"

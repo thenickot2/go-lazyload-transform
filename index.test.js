@@ -1,7 +1,8 @@
-const { Render } = require('./index.js');
+/* eslint-disable no-undef */
+const { Render } = require('./index.js')
 
 test('Render calls go binding', () => {
-    const input = `<!DOCTYPE html>
+  const input = `<!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -13,11 +14,11 @@ test('Render calls go binding', () => {
   </div>
 </body>
 </html>
-`;
+`
 
-    const output = Render(input);
+  const output = Render(input)
 
-    const expected = `<!DOCTYPE html>
+  const expected = `<!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -29,6 +30,6 @@ test('Render calls go binding', () => {
   </div>
 </body>
 </html>
-`;
-    expect(output).toEqual(expected);
-});
+`
+  expect(output).toEqual(expected)
+})
