@@ -5,13 +5,13 @@
 Node package written in Go to transform html to support the lazy loading of images clientside
 
 ## Benchmark
-To compare to cheerio, run `node ./benchmark/cheerio`. This benchmark's cheerio implementation only implements moving `img.src` to `data-src` and not the other features of the Go LazyLoader.
+To compare to cheerio, run `node ./benchmark/cheerio`. This benchmark's cheerio implementation is a direct implementation of the functionality written in Go, following best practices from the cheerio documentation.
 
-On a `Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz` is roughly 4x faster.
+On a `Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz` this library is roughly 6-7x faster at parsing and manipulating 1494 lines of html.
 
 ```
-LazyLoad Completed In: 14ms
-Cheerio Completed In: 57ms
+LazyLoad Completed In: 9ms
+Cheerio Completed In: 70ms
 ```
 
 ## Development
