@@ -28,6 +28,7 @@
     "ref-struct": "^1.1.0"
   },
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "jest": "^24.9.0"
   }
 }
