@@ -1,32 +1,27 @@
 package main
 
 import (
-	"github.com/gopherjs/gopherjs/js"
+	"C"
+	"fmt"
 	"github.com/jbowtie/gokogiri"
 	"regexp"
 	"strings"
 )
-
-func main() {
-	js.Global.Set("lazyload", map[string]interface{}{
-		"New": New,
-	})
-}
 
 // LazyLoad maintains the String representation of the page html and options to use during transformation
 type LazyLoad struct {
 	html string
 }
 
-// New creates a new JS instance of LazyLoad
-func New(html string) *js.Object {
-	return js.MakeWrapper(&LazyLoad{html})
+func renderString(html string) string {
+	return C.GoString(Render(C.CString(html)))
 }
 
 // Render transforms the HTML for LazyLoading
-func Render(lazyLoad *LazyLoad) string {
+//export Render
+func Render(html *C.char) *C.char {
 	// Parse the web page
-	doc, _ := gokogiri.ParseHtml([]byte(lazyLoad.html))
+	doc, _ := gokogiri.ParseHtml([]byte(C.GoString(html)))
 
 	// Move src to data-src for all images
 	imgs, _ := doc.Search("//img")
@@ -47,8 +42,10 @@ func Render(lazyLoad *LazyLoad) string {
 		}
 	}
 
-	stringRep := doc.String()
+	stringRep := C.CString(doc.String())
 	doc.Free()
 
 	return stringRep
 }
+
+func main() {}
