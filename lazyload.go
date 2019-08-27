@@ -12,6 +12,7 @@ type LazyLoad struct {
 	html string
 }
 
+// renderString is a wrapper for tests, as "testing" is incompatible with CGo and thus CStrings
 func renderString(html string) string {
 	return C.GoString(Render(C.CString(html)))
 }
