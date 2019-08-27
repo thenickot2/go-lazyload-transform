@@ -1,34 +1,36 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestImageSrc(t *testing.T) {
 	input := `<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Test Website</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Test Website</title>
 </head>
 <body>
-	<div>
-		<img src="https://google.com/my-image.jpg">
-	</div>
+  <div>
+    <img src="https://google.com/my-image.jpg">
+  </div>
 </body>
 </html>
 `
 
-	output := Render(input)
+	output := renderString(input)
 
 	expected := `<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Test Website</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Test Website</title>
 </head>
 <body>
-	<div>
-		<img src="" data-src="https://google.com/my-image.jpg">
-	</div>
+  <div>
+    <img src="" data-src="https://google.com/my-image.jpg">
+  </div>
 </body>
 </html>
 `
@@ -53,7 +55,7 @@ func TestBackgroundImageSrc(t *testing.T) {
 </html>
 `
 
-	output := Render(input)
+	output := renderString(input)
 
 	expected := `<!DOCTYPE html>
 <html>

@@ -13,12 +13,15 @@ type LazyLoad struct {
 	html string
 }
 
+func renderString(html string) string {
+	return C.GoString(Render(C.CString(html)))
+}
+
 // Render transforms the HTML for LazyLoading
 //export Render
-func Render(html string) string {
-	fmt.Println(len(html))
+func Render(html *C.char) *C.char {
 	// Parse the web page
-	doc, _ := gokogiri.ParseHtml([]byte(html))
+	doc, _ := gokogiri.ParseHtml([]byte(C.GoString(html)))
 
 	// Move src to data-src for all images
 	imgs, _ := doc.Search("//img")
@@ -39,7 +42,7 @@ func Render(html string) string {
 		}
 	}
 
-	stringRep := doc.String()
+	stringRep := C.CString(doc.String())
 	doc.Free()
 
 	return stringRep
