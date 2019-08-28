@@ -23,10 +23,7 @@
     "url": "https://github.com/thenickot2/go-lazyload-transform/issues"
   },
   "homepage": "https://github.com/thenickot2/go-lazyload-transform#readme",
-  "dependencies": {
-    "ffi": "^2.3.0",
-    "ref-struct": "^1.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.2.2",
