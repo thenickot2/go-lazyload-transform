@@ -4,6 +4,32 @@
 
 Node package written in Go to transform html to support the lazy loading of images clientside
 
+To install:
+
+```
+npm install --save lazyload-transform
+yarn add lazyload-transform
+```
+
+To use:
+
+```javascript
+const { Render } = require('lazyload-transform');
+
+const html = '<html><head></head><body><img src="my-image.jpg"></body></html>';
+const transformedHtml = Render(html);
+console.log(transformedHtml);
+// -> <html><head></head><body><img src="" data-src="my-image.jpg"></body></html>
+```
+
+## Transformation
+By default, `lazyload-transform` will do 2 things:
+
+1. For all `img` tags, move the value of `src` to `data-src`
+2. For all html tags with an inline `style` attribute, move the first url to `data-background-image` and replace with a single pixel
+
+Options to control behavior will be in the next release.
+
 ## Benchmark
 To compare to cheerio, run `node ./benchmark/cheerio`. This benchmark's cheerio implementation is a direct implementation of the functionality written in Go, following best practices from the cheerio documentation.
 
