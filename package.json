@@ -1,6 +1,6 @@
 {
-  "name": "go-lazyload-transform",
-  "version": "1.0.0",
+  "name": "lazyload-transform",
+  "version": "0.0.1",
   "description": "transform html to support the lazy loading of images clientside",
   "main": "index.js",
   "scripts": {
