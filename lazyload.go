@@ -32,7 +32,7 @@ func Render(html *C.char) *C.char {
 
 	// Move inline styles for background images to data-background-image
 	inlineStyleNodes, _ := doc.Search("//*[contains(@style, background)]")
-	r, _ := regexp.Compile(`url\((?:['\"]?)((?:http|https)\://.*?)(?:['\"]?)\)`)
+	r, _ := regexp.Compile(`url\((?:['"]?)((?:http|https)\://.*?)(?:['"]?)\)`)
 	for i := 0; i < len(inlineStyleNodes); i++ {
 		match := r.FindStringSubmatch(inlineStyleNodes[i].Attr("style"))
 		if len(match) == 2 {

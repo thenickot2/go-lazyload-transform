@@ -50,6 +50,8 @@ func TestBackgroundImageSrc(t *testing.T) {
 <body>
 	<div>
 		<div style="background-image:url(https://google.com/my-image.jpg);"></div>
+		<div style="background-image:url('https://google.com/my-image.jpg');"></div>
+		<div style='background-image:url("https://google.com/my-image.jpg");'></div>
 	</div>
 </body>
 </html>
@@ -66,6 +68,8 @@ func TestBackgroundImageSrc(t *testing.T) {
 <body>
 	<div>
 		<div style="background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==);" data-background-image="https://google.com/my-image.jpg"></div>
+		<div style="background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==');" data-background-image="https://google.com/my-image.jpg"></div>
+		<div style='background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==");' data-background-image="https://google.com/my-image.jpg"></div>
 	</div>
 </body>
 </html>
