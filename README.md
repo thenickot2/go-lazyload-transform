@@ -19,7 +19,7 @@ const { Render } = require('lazyload-transform');
 const html = '<html><head></head><body><img src="my-image.jpg"></body></html>';
 const transformedHtml = Render(html);
 console.log(transformedHtml);
-// -> <html><head></head><body><img src="" data-src="my-image.jpg"></body></html>
+// -> <html><head></head><body><img src="" data-src="my-image.jpg" class="lazyload-transform"><script>/*ClientSide JS Here...*/</script></body></html>
 ```
 
 ## Transformation
@@ -41,6 +41,8 @@ Cheerio Completed In: 70ms
 ```
 
 ## Development
+Requires `libxml2`.
+
 To test the go library run `go test lazyload.go lazyload_test.go`.
 To test the node wrapper run `npm test`. Node wrapper should always be tested after updating go library.
 
