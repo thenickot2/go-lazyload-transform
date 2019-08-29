@@ -29,7 +29,7 @@ test('Render calls go binding', () => {
 </head>
 <body>
   <div>
-    <img src="" data-src="https://google.com/my-image.jpg">
+    <img src="" data-src="https://google.com/my-image.jpg" class="lazyload-transform">
   </div>
 <script type="text/javascript">${clientJS}</script>
 </body>

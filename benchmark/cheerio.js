@@ -3,6 +3,7 @@ const { Render } = require('../index.js')
 const cheerio = require('cheerio')
 
 const inputHTML = fs.readFileSync(`${__dirname}/index.html`, 'utf8')
+const clientJS = fs.readFileSync('./client/lazyload.js')
 
 let start = new Date()
 Render(inputHTML)
@@ -20,6 +21,7 @@ function cheerioLazyLoad (html) {
   $('img').each(function (i, elem) {
     $(this).attr('data-src', $(this).attr('src'))
     $(this).attr('src', '')
+    $(this).addClass('lazyload-transform')
   })
 
   // eslint-disable-next-line no-useless-escape
@@ -30,8 +32,11 @@ function cheerioLazyLoad (html) {
       $(this).attr('data-background-image', match[1])
       const placeholderImg = $(this).attr('style').replace(match[1], 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==')
       $(this).attr('style', placeholderImg)
+      $(this).addClass('lazyload-transform')
     }
   })
+
+  $('body').append(`<script type="text/javascript">${clientJS}</script>`)
 
   return $.html()
 }

@@ -32,7 +32,7 @@ func TestImageSrc(t *testing.T) {
 </head>
 <body>
   <div>
-    <img src="" data-src="https://google.com/my-image.jpg">
+    <img src="" data-src="https://google.com/my-image.jpg" class="lazyload-transform">
   </div>
 <script type="text/javascript">`+string(clientJS)+`</script>
 </body>
@@ -73,9 +73,9 @@ func TestBackgroundImageSrc(t *testing.T) {
 </head>
 <body>
 	<div>
-		<div style="background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==);" data-background-image="https://google.com/my-image.jpg"></div>
-		<div style="background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==');" data-background-image="https://google.com/my-image.jpg"></div>
-		<div style='background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==");' data-background-image="https://google.com/my-image.jpg"></div>
+		<div style="background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==);" data-background-image="https://google.com/my-image.jpg" class="lazyload-transform"></div>
+		<div style="background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==');" data-background-image="https://google.com/my-image.jpg" class="lazyload-transform"></div>
+		<div style='background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==");' data-background-image="https://google.com/my-image.jpg" class="lazyload-transform"></div>
 	</div>
 <script type="text/javascript">`+string(clientJS)+`</script>
 </body>
