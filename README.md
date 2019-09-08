@@ -46,4 +46,6 @@ Requires `libxml2`.
 To test the go library run `go test lazyload.go lazyload_test.go`.
 To test the node wrapper run `npm test`. Node wrapper should always be tested after updating go library.
 
-To generate `lazyload.h` and `lazyload.a` required for the node binding, run `go build -buildmode=c-archive -o lazyload.a lazyload.go` followed by `node-gyp build` to update the bindings.
+To generate `lazyload.h` and `lazyload.a` required for the node binding on your local, run `go build -buildmode=c-archive -o lazyload.a lazyload.go` followed by `node-gyp build` to update the bindings.
+
+To cross-compile for all platform, xgo is the best option `xgo -buildmode=c-archive --targets=windows/*,darwin/*,linux/* --deps=http://ftp.gnome.org/pub/GNOME/sources/libxml2/2.6/libxml2-2.6.30.tar.bz2 --depsargs=--without-threads PATH_HERE`.
